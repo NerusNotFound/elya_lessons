@@ -68,15 +68,14 @@ const week_day_now = today.getDay() - 1;
 const hours_now = today.getHours();
 const minute_now = today.getMinutes();
 
-
 console.log(`hours_now: ${hours_now}`);
 console.log(`minute_now: ${minute_now}`);
 
 const today_list = lessons[week_day_now];
 
+const lessons_elem = document.querySelector('.lessons');
 let turn = false;
 let have_less = false;
-const lessons_elem = document.querySelector('.lessons');
 
 for (let i = 0; i < today_list.length; ++i) {
 
@@ -102,8 +101,14 @@ for (let i = 0; i < today_list.length; ++i) {
 		// show others lessons
 		create_block(less_elem, list);
 	}
-
+	
 	lessons_elem.appendChild(less_elem);
+}
+
+let first_less_started = check_first_less_started(today_list[0], hours_now, minute_now);
+
+if (!first_less_started) {
+	turn = true;
 }
 
 if (!turn && have_less) {
@@ -115,10 +120,22 @@ if (!have_less && !turn) {
 	no_less(lessons_elem);
 }
 
+
+function check_first_less_started(less, H, M) {
+	let less_start_h = less.start_at.get_hour();
+	let less_start_m = less.start_at.get_min();
+
+	if (H < less_start_h || H == less_start_h && M < less_start_m) {
+		return false;
+	}
+
+	return true;
+}
+
 function no_less(less_elem) {
 	const turn = document.createElement('div');
 	turn.textContent = 'Դաս չկա';
-	turn.classList.add('right_now');
+	// turn.classList.add('right_now');
 	turn.classList.add('center');
 	turn.classList.add('less_elem');
 	turn.classList.add('no_less');
@@ -139,7 +156,19 @@ function create_block(less_elem, list) {
 	less_elem.appendChild(inner_p(list.less_name, ['item']));
 	less_elem.appendChild(inner_p('Դասախոս։ ' + list.teacher));
 	less_elem.appendChild(inner_p('Լսարան։ ' + list.lessons_number));
-	less_elem.appendChild(inner_p(list.start_at.get_hour() + ":" + list.start_at.get_min() + ' - ' +  list.finish_at.get_hour() + ":" + list.finish_at.get_min()));
+
+	const start_min = min_00(list.start_at.get_min());
+	const finish_min = min_00(list.finish_at.get_min());
+
+	less_elem.appendChild(inner_p(list.start_at.get_hour() + ":" + start_min + ' - ' +  list.finish_at.get_hour() + ":" + finish_min));
+}
+
+function min_00(min) {
+	if (min < 10) {
+		return '0' + min
+	}
+
+	return min;
 }
 
 function inner_p(text, classes = null) {

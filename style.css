@@ -24,7 +24,7 @@ body{
 
 .less_elem{
 	position: relative;
-	background-color: rgba(34, 3, 34, 0.643);
+	background-color: rgba(45, 13, 45, 0.643);
 	border-radius: 10px;
 	margin-bottom: 10px;
 	padding: 10px;
@@ -33,8 +33,9 @@ body{
 }
 
 .right_now {
+	background: linear-gradient(0deg, rgba(45, 13, 45, 0.643), black, green);
 	text-align: center;
-	min-height: 90vh;
+	min-height: 80vh;
 }
 
 .item{
@@ -50,4 +51,6 @@ body{
 }
 .no_less{
 	min-height: calc(100vh - 20px);
+	background-color: rgba(61, 171, 42, 0.33);
+	font-size: 3rem;
 }
