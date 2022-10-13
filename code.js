@@ -68,8 +68,8 @@ const week_day_now = today.getDay() - 1;
 const hours_now = today.getHours();
 const minute_now = today.getMinutes();
 
-console.log(`hours_now: ${hours_now}`);
-console.log(`minute_now: ${minute_now}`);
+
+console.log(`Time: ${hours_now}:${minute_now}`);
 
 const today_list = lessons[week_day_now];
 
@@ -82,14 +82,18 @@ for (let i = 0; i < today_list.length; ++i) {
 	const list = today_list[i];
 	const start = list.start_at;
 	const finish = list.finish_at;
-	
+
 	if (hours_now > finish.get_hour() || hours_now == finish.get_hour() && minute_now >= finish.get_min()) { continue; }
 	// create info block
 	have_less = true;
 	const less_elem = document.createElement('div');
 	less_elem.classList.add('less_elem');
 	
-	if (hours_now == start.get_hour() && minute_now >= start.get_min()) {
+	console.log('info');
+	console.log(hours_now, ">=", finish.get_hour(), ' && ', minute_now, '>=', start.get_min() );
+	console.log(hours_now, ">=", finish.get_hour(), ' && ', minute_now, '>=', start.get_min() );
+	if (hours_now == start.get_hour() && minute_now >= start.get_min() || 
+			hours_now >= finish.get_hour() && minute_now <= finish.get_min()) {
 		// lesson in right now
 		turn = true;
 		less_elem.classList.add('right_now');
