@@ -65,11 +65,10 @@ const lessons = [
 
 const today = new Date();
 const week_day_now = today.getDay() - 1;
-// const hours_now = today.getHours();
-// const minute_now = today.getMinutes();
+const hours_now = today.getHours();
+const minute_now = today.getMinutes();
 
-const hours_now = 12;
-const minute_now = 30;
+
 
 
 console.log(`Time: ${hours_now}:${minute_now}`);
