@@ -1,4 +1,11 @@
 *{
+	--color-1: rgba(45, 13, 45, 0.643);
+	--color-2: white;
+	--color-3: rgba(44, 110, 37, 0.846);
+	--color-4: rgba(61, 171, 42, 0.33);
+	--gradient-1: linear-gradient(rgb(0, 124, 128), black, yellow);
+	--gradient-2:  linear-gradient(0deg, var(--color-1), black, var(--color-3));
+
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
@@ -7,10 +14,8 @@
 }
 body{
 	min-height: 100vh;
-	/* background: url('bg.png') center center / cover; */
-	background: linear-gradient(rgb(0, 124, 128), black, yellow);
+	background: var(--gradient-1);
 }
-
 .center{
 	display: flex;
 	align-items: center;
@@ -24,16 +29,15 @@ body{
 
 .less_elem{
 	position: relative;
-	background-color: rgba(45, 13, 45, 0.643);
+	background-color: var(--color-1);
 	border-radius: 10px;
 	margin-bottom: 10px;
 	padding: 10px;
-	/* backdrop-filter: blur(5px); */
-	color: rgb(255, 255, 255);
+	color: var(--color-2);
 }
 
 .right_now {
-	background: linear-gradient(0deg, rgba(45, 13, 45, 0.643), black, green);
+	background: var(--gradient-2);
 	text-align: center;
 	min-height: 80vh;
 }
@@ -46,11 +50,11 @@ body{
 }
 .turn{
 	height: 13vh;
-	background-color: rgba(44, 110, 37, 0.846);
+	background-color: var(--color-3);
 	font-size: 2.5rem;
 }
 .no_less{
 	min-height: calc(100vh - 20px);
-	background-color: rgba(61, 171, 42, 0.33);
+	background-color: var(--color-4);
 	font-size: 3rem;
 }
