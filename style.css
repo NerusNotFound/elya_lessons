@@ -39,8 +39,7 @@ body{
 .right_now {
 	background: var(--gradient-2);
 	text-align: center;
-	min-height: calc(90vh - 20px);;
-	
+	min-height: calc(90vh - 20px);
 }
 .item{
 	padding: 10px;
