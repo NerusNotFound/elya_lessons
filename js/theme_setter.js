@@ -7,7 +7,7 @@
 	const header = document.createElement('header');
 	header.classList.add('center');
 
-	const names = ['Classic', 'Donat', 'B&W'];
+	const names = ['Classic', 'Donut', 'B&W'];
 	const themes_names = ['theme_classic', 'theme_donat', 'theme_black-white'];
 	const div = document.createElement('div');
 
