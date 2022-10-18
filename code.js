@@ -13,9 +13,9 @@ class Clock {
 
 const lessons = [
 	[
-		{ start_at: new Clock(13, 10), finish_at: new Clock(13, 55), less_name: 'Գնագոյացումը շինարարության ոլորտում', lessons_number: 7113, teacher: 'Գալոլոյան Գ', less_char: 'Գ' },
-		{ start_at: new Clock(14, 0), finish_at: new Clock(14, 45), less_name: 'Գնագոյացումը շինարարության ոլորտում', lessons_number: 7113, teacher: 'Գալոլոյան Գ', less_char: 'Գ' },
-		{ start_at: new Clock(14, 55), finish_at: new Clock(15, 45), less_name: 'Գնագոյացումը շինարարության ոլորտում', lessons_number: 7113, teacher: 'Գալոլոյան Գ', less_char: 'Գ' },
+		{ start_at: new Clock(13, 10), finish_at: new Clock(13, 55), less_name: 'Գնագոյացումը շինարարության ոլորտում', lessons_number: 7113, teacher: 'Գալոյան Գ', less_char: 'Գ' },
+		{ start_at: new Clock(14, 0), finish_at: new Clock(14, 45), less_name: 'Գնագոյացումը շինարարության ոլորտում', lessons_number: 7113, teacher: 'Գալոյան Գ', less_char: 'Գ' },
+		{ start_at: new Clock(14, 55), finish_at: new Clock(15, 45), less_name: 'Գնագոյացումը շինարարության ոլորտում', lessons_number: 7113, teacher: 'Գալոյան Գ', less_char: 'Գ' },
 		{ start_at: new Clock(15, 45), finish_at: new Clock(16, 30), less_name: 'Կառավարչական հաշվառում', lessons_number: 2431, teacher: 'Բարիկյան', less_char: 'Դ' },
 		{ start_at: new Clock(16, 40), finish_at: new Clock(17, 25), less_name: 'Կառավարչական հաշվառում', lessons_number: 2431, teacher: 'Բարիկյան', less_char: 'Դ/Գ' },
 		{ start_at: new Clock(17, 30), finish_at: new Clock(18, 15), less_name: 'Կառավարչական հաշվառում', lessons_number: 2431, teacher: 'Բարիկյան', less_char: 'Գ' },
@@ -63,68 +63,72 @@ const lessons = [
 	],
 	];
 
-const today = new Date();
-const week_day_now = today.getDay() - 1;
-const hours_now = today.getHours();
-const minute_now = today.getMinutes();
+main();
 
+function main(){
+	const today = new Date();
+	const week_day_now = today.getDay() - 1;
+	const hours_now = today.getHours();
+	const minute_now = today.getMinutes();
 
-
-
-console.log(`Time: ${hours_now}:${minute_now}`);
-
-const today_list = lessons[week_day_now];
-
-const lessons_elem = document.querySelector('.lessons');
-let turn = false;
-let have_less = false;
-
-for (let i = 0; i < today_list.length; ++i) {
-
-	const list = today_list[i];
-	const start = list.start_at;
-	const finish = list.finish_at;
-
-	if (hours_now > finish.get_hour() || hours_now == finish.get_hour() && minute_now >= finish.get_min()) { continue; }
-	// create info block
-	have_less = true;
-	const less_elem = document.createElement('div');
-	less_elem.classList.add('less_elem');
-	
-	console.log('info');
-	console.log(hours_now, ">=", finish.get_hour(), ' && ', minute_now, '>=', start.get_min() );
-	console.log(hours_now, ">=", finish.get_hour(), ' && ', minute_now, '>=', start.get_min() );
-	if (hours_now == start.get_hour() && minute_now >= start.get_min() || 
-			hours_now >= finish.get_hour() && minute_now <= finish.get_min()) {
-		// lesson in right now
-		turn = true;
-		less_elem.classList.add('right_now');
-		less_elem.classList.add('center');
-		let block = document.createElement('div');
-		create_block(block, list);
-		less_elem.appendChild(block);
-	} else {
-		// show others lessons
-		create_block(less_elem, list);
+	if (week_day_now >= 5) {
+		no_less(document.querySelector('.lessons'));
+		return;
 	}
-	
-	lessons_elem.appendChild(less_elem);
+
+	console.log(`Time: ${hours_now}:${minute_now}`);
+
+	const today_list = lessons[week_day_now];
+
+	const lessons_elem = document.querySelector('.lessons');
+	let turn = false;
+	let have_less = false;
+
+	for (let i = 0; i < today_list.length; ++i) {
+
+		const list = today_list[i];
+		const start = list.start_at;
+		const finish = list.finish_at;
+
+		if (hours_now > finish.get_hour() || hours_now == finish.get_hour() && minute_now >= finish.get_min()) { continue; }
+		// create info block
+		have_less = true;
+		const less_elem = document.createElement('div');
+		less_elem.classList.add('less_elem');
+		
+		if (hours_now == start.get_hour() && minute_now >= start.get_min() || 
+				hours_now >= finish.get_hour() && minute_now <= finish.get_min()) {
+			// lesson in right now
+			turn = true;
+			less_elem.classList.add('right_now');
+			less_elem.classList.add('center');
+			let block = document.createElement('div');
+			create_block(block, list);
+			less_elem.appendChild(block);
+		} else {
+			// show others lessons
+			create_block(less_elem, list);
+		}
+		
+		lessons_elem.appendChild(less_elem);
+	}
+
+	let first_less_started = check_first_less_started(today_list[0], hours_now, minute_now);
+
+	if (!first_less_started) {
+		turn = true;
+	}
+
+	if (!turn && have_less) {
+		turn_show(lessons_elem);
+		turn = !turn;
+	}
+
+	if (!have_less && !turn) {
+		no_less(lessons_elem);
+	}
 }
 
-let first_less_started = check_first_less_started(today_list[0], hours_now, minute_now);
-
-if (!first_less_started) {
-	turn = true;
-}
-
-if (!turn && have_less) {
-	turn_show(lessons_elem);
-	turn = !turn;
-}
-
-if (!have_less && !turn) {
-	no_less(lessons_elem);
-}
 
 
 function check_first_less_started(less, H, M) {
