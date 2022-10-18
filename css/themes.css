@@ -1,0 +1,30 @@
+header > div{
+	display: grid;
+	grid-template-columns: repeat(3, 33.3%);
+	grid-gap: 4px;
+	padding: 10px 30px;
+	background-color: rgba(0, 0, 0, .6);
+	border-radius: 10px;
+	backdrop-filter: blur(3px);
+}
+.theme{
+	--size: 60px;
+	border-radius: 100%;
+	height: var(--size);
+	width: var(--size);
+	background-color: red;
+}
+
+.theme_classic {
+	background: linear-gradient(40deg, #007478, #F3F300);
+	color: #072627;
+}	
+.theme_donat {
+	color: rgb(54, 21, 26);
+	background: linear-gradient(40deg, rgb(147, 68, 81), pink);
+}
+.theme_black-white {
+	background-color: black;
+	border: 3px solid white;
+	color: white;
+}

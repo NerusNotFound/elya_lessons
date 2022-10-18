@@ -17,11 +17,12 @@ body{
 }
 .right_now{
 	font-weight: bolder;
+	color: var(--color-2);
 }
 .less_elem, .turn, .no_less, .right_now {
 	border: 3px solid var(--color-3);
 }
 .turn{
+	background: rgba(255, 244, 85, 0.5);
 }
-.no_less{
-}
+/* .no_less{} */
