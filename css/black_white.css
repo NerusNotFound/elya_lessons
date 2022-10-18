@@ -1,0 +1,27 @@
+*{
+	--color-1: black;
+	--color-2: white;
+	--color-3: var(--color-1);
+	--color-4: var(--color-1);
+	--gradient-1: var(--color-1);
+	--gradient-2:  var(--color-1);
+}
+
+.less_elem{
+	color: gray;
+}
+.right_now{
+	color: var(--color-2);
+	text-shadow: 0px 0px 5px rgb(200, 200, 200);
+}
+.less_elem, .turn, .no_less, .right_now {
+	border: 1px solid var(--color-2);
+}
+.turn{
+	color: rgb(248, 248, 131);
+	text-shadow: 0px 0px 15px yellow;
+}
+.no_less{
+	color: rgb(131, 255, 131);
+	text-shadow: 0px 0px 15px rgb(4, 117, 4);
+}
