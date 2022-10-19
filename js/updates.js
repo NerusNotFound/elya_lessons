@@ -8,6 +8,7 @@ const update_btn = document.createElement('button');
 if (update_now > updates_counter) {
 	//show link
 	console.log('news');
+	
 	document.body.prepend(update_btn);
 	update_btn.onclick = () => {
 		localStorage.setItem('update', update_now);
