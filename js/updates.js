@@ -11,7 +11,7 @@ if (update_now > updates_counter) {
 	document.body.prepend(update_btn);
 	update_btn.onclick = () => {
 		localStorage.setItem('update', update_now);
-		location.href = '../html/updates/updates.html';
+		location.href = 'html/updates/updates.html';
 	}
 }else{
 	console.log('no news');
