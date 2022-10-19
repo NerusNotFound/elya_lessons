@@ -24,5 +24,5 @@
 	}
 
 	header.appendChild(div);
-	document.body.prepend(header);
+	document.body.appendChild(header);
 })();

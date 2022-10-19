@@ -164,13 +164,13 @@ function turn_show(lessons_elem) {
 
 function create_block(less_elem, list) {
 	less_elem.appendChild(inner_p(list.less_name, ['item']));
-	less_elem.appendChild(inner_p(`Դասախոս։ ${list.teacher}`));
-	less_elem.appendChild(inner_p(`Լսարան։ ${list.lessons_number} (${list.less_char})`));
+	less_elem.appendChild(inner_p(`Դասախոս։ ${list.teacher}`, ['parag']));
+	less_elem.appendChild(inner_p(`Լսարան։ ${list.lessons_number} (${list.less_char})`, ['parag']));
 
 	const start_min = min_00(list.start_at.get_min());
 	const finish_min = min_00(list.finish_at.get_min());
 
-	less_elem.appendChild(inner_p(list.start_at.get_hour() + ":" + start_min + ' - ' +  list.finish_at.get_hour() + ":" + finish_min));
+	less_elem.appendChild(inner_p(list.start_at.get_hour() + ":" + start_min + ' - ' +  list.finish_at.get_hour() + ":" + finish_min, ['parag']));
 }
 
 function min_00(min) {

@@ -15,6 +15,10 @@ body{
 	text-shadow: 0px 0px 10px var(--color-3);
 	position: relative;
 }
+.parag{
+	font-size: large;
+	font-weight: bolder;
+}
 .right_now{
 	font-weight: bolder;
 	color: var(--color-2);
@@ -25,4 +29,3 @@ body{
 .turn{
 	background: rgba(255, 244, 85, 0.5);
 }
-/* .no_less{} */
