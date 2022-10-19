@@ -193,5 +193,3 @@ function inner_p(text, classes = null) {
 
 	return p;
 }
-
-localStorage.setItem('update', 1);

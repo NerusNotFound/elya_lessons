@@ -1,0 +1,19 @@
+body{
+	padding: 10px;
+}
+.updates{
+	border-left: 3px solid white;
+	border-radius: 15px 0 0 0 ;
+	padding-bottom: 20px;
+}
+.update__post{
+	padding: 10px 20px;
+	border-radius: 15px;
+	margin-bottom: 10px;
+	background-color: rgba(48, 48, 48, 0.6);
+	color: white;
+}
+.update__post_header{
+	border-bottom: 3px solid rgb(166, 166, 166);
+}
+/* .update__post_text{} */
