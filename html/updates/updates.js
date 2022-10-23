@@ -36,7 +36,7 @@ class Post{
 
 		const update__post_text = document.createElement('p'); 
 					update__post_text.classList.add('update__post_text');
-					update__post_text.innerText = this._text;
+					update__post_text.innerHTML = this._text;
 
 		
 		update__post.appendChild(update__post_header);
@@ -46,9 +46,17 @@ class Post{
 }
 
 new Post('', '');
-new Post('News', 'Init news page');
+new Post('Ստատիստիկա', '- Ստատիստիկայի էջ<br>- Bug fix');
+new Post('News', '- Init updates page');
 
 // show updates
 for (let i = 0; i < updates.length; ++i) {
 	updates[i].show();
 }
+
+(() => {
+	const update_elem = document.querySelector('.updates');
+	const cyrcle = document.createElement('div');
+	cyrcle.classList.add('end');
+	update_elem.appendChild(cyrcle);
+})();

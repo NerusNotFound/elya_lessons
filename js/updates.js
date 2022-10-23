@@ -1,6 +1,5 @@
-const update_now = 3;
+const update_now = 4;
 const updates_counter = JSON.parse(localStorage.getItem('update'));
-// <button class="updates_btn">New update!</button>
 const update_btn = document.createElement('button');
 			update_btn.classList.add('updates_btn');
 			update_btn.textContent = 'New update!';

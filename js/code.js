@@ -71,6 +71,8 @@ function main(){
 	const hours_now = today.getHours();
 	const minute_now = today.getMinutes();
 
+	console.log(today.getDate(), today.getMonth(), today.getFullYear());
+	check_working_range(today.getDate(), today.getMonth(), today.getFullYear());
 	visit_counter(today.getDate(), today.getMonth());
 
 	if (week_day_now >= 5) {
@@ -221,4 +223,25 @@ function check_day_in_days(days, today) {
 	}
 
 	return false;
+}
+
+function test(t1, t2) {
+	if (t1 == t2) {
+		console.log('%cTEST DONE', 'color: green;');
+		return;
+	}
+	
+	console.log('%cTEST FAIL', 'color: red;');
+}
+
+function check_working_range(day, month, year){
+	if (year != 2023) {
+		if (month < 10) {
+			if (day < 29) {
+				return true;
+			}
+		}
+	}
+
+	location.href = '../html/closed/closed.html';
 }

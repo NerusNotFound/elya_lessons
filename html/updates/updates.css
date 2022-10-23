@@ -1,12 +1,15 @@
 body{
 	padding: 10px;
+	overflow: hidden;
 }
 .updates{
-	border-left: 3px solid white;
-	border-radius: 15px 0 0 0 ;
+	position: relative;
+	border-left: 3px solid rgba(48, 48, 48, 0.6);
+	transform: translateX(15px);
 	padding-bottom: 20px;
 }
 .update__post{
+	transform: translateX(-15px);
 	padding: 10px 20px;
 	border-radius: 15px;
 	margin-bottom: 10px;
@@ -14,6 +17,16 @@ body{
 	color: white;
 }
 .update__post_header{
-	border-bottom: 3px solid rgb(166, 166, 166);
+	border-bottom: 1px solid white;
 }
 /* .update__post_text{} */
+.end {
+	--size: 20px;
+	position: absolute;
+	bottom: calc(var(--size) - var(--size) * 2);
+	left: calc(var(--size) - var(--size) * 1.5);
+	width: var(--size);
+	height: var(--size);
+	border: 3px solid rgba(48, 48, 48, 0.6);
+	border-radius: 100%;
+}
