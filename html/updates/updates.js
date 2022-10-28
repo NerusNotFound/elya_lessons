@@ -46,8 +46,8 @@ class Post{
 }
 
 new Post('', '');
-new Post('Ստատիստիկա', '- Ստատիստիկայի էջ<br>- Bug fix');
-new Post('News', '- Init updates page');
+new Post('23.10.2022', '- Ստատիստիկայի էջ<br>- Bug fix');
+new Post('19.10.2022', '- Init updates page');
 
 // show updates
 for (let i = 0; i < updates.length; ++i) {
