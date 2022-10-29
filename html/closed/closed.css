@@ -4,7 +4,7 @@ body{
 }
 header{
 	background: linear-gradient(45deg, rgb(181, 121, 121), rgb(128, 37, 37));
-	min-height: 90vh;
+	min-height: 80vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;

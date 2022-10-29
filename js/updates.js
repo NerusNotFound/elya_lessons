@@ -1,19 +1,38 @@
-const update_now = 4;
-const updates_counter = JSON.parse(localStorage.getItem('update'));
-const update_btn = document.createElement('button');
-			update_btn.classList.add('updates_btn');
-			update_btn.textContent = 'New update!';
+class Update {
+	update_now;
+	updates_counter;
+	update_btn;
 
-if (update_now > updates_counter) {
-	//show link
-	console.log('news');
-	
-	document.body.prepend(update_btn);
-	update_btn.onclick = () => {
-		localStorage.setItem('update', update_now);
-		location.href = 'html/updates/updates.html';
+	constructor(up_now) {
+		this.update_now = up_now;
+		this.updates_counter = JSON.parse(localStorage.getItem('update'));
 	}
-}else{
-	console.log('no news');
-}
+	
+	update_btn_create() {
+		this.update_btn = document.createElement('button');
+		this.update_btn.classList.add('updates_btn');
+		this.update_btn.textContent = 'New update!';
+	}
 
+	check_updates() {
+		const update_now = this.update_now;
+		const updates_counter = this.updates_counter;
+
+		if (update_now > updates_counter) {
+			//show link
+			console.log('new updates');
+			
+			document.body.prepend(update_btn);
+			update_btn.onclick = () => {
+				localStorage.setItem('update', update_now);
+				location.href = 'html/updates/updates.html';
+			}
+		}else{
+			console.log('no updates');
+		}
+	}
+};
+
+const Updates = new Update(4);
+Updates.update_btn_create();
+Updates.check_updates();
