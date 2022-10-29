@@ -243,5 +243,5 @@ function check_working_range(day, month, year){
 		}
 	}
 
-	location.href = '../html/closed/closed.html';
+	location.href = 'html/closed/closed.html';
 }
