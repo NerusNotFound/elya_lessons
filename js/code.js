@@ -1,4 +1,5 @@
-main();
+// main();
+location.href = 'html/closed/closed.html';
 
 function main(){
 	const today = new Date();
@@ -12,7 +13,6 @@ function main(){
 
 	console.log(today.getDate(), today.getMonth(), today.getFullYear());
 	
-	check_working_range(today.getDate(), today.getMonth(), today.getFullYear());
 	visit_counter(today.getDate(), today.getMonth());
 
 	if (week_day_now >= 5) {
@@ -178,6 +178,6 @@ function check_working_range(day, month, year){
 			}
 		}
 	}
-
+	
 	location.href = 'html/closed/closed.html';
 }
