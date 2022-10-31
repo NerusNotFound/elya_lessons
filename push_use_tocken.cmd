@@ -1,3 +1,1 @@
-push.cmd
-echo ok
-pause
+git push https://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@github.com/NerusNotFound/elya_lessons.git
