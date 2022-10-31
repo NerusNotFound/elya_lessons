@@ -1,1 +1,1 @@
-git push https://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@github.com/NerusNotFound/elya_lessons.git
+git push https://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@github.com/NerusNotFound/elya_lessons.git
