@@ -171,9 +171,13 @@ function test(t1, t2) {
 }
 
 function check_working_range(day, month, year){
-	if (year != 2023) {
-		if (month < 10) {
-			if (day < 29) {
+	const limit_year = 2023;
+	const limit_month = 10
+	const limit_day = 29;
+	
+	if (year != limit_year) {
+		if (month < limit_month) {
+			if (day < limit_day) {
 				return true;
 			}
 		}
