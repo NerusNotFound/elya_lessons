@@ -22,8 +22,8 @@ class Update {
 			//show link
 			console.log('new updates');
 			
-			document.body.prepend(update_btn);
-			update_btn.onclick = () => {
+			document.body.prepend(this.update_btn);
+			this.update_btn.onclick = () => {
 				localStorage.setItem('update', update_now);
 				location.href = 'html/updates/updates.html';
 			}

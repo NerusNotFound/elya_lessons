@@ -54,9 +54,9 @@ for (let i = 0; i < updates.length; ++i) {
 	updates[i].show();
 }
 
-(() => {
+{
 	const update_elem = document.querySelector('.updates');
 	const cyrcle = document.createElement('div');
 	cyrcle.classList.add('end');
 	update_elem.appendChild(cyrcle);
-})();
+}

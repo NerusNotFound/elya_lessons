@@ -4,7 +4,7 @@ body{
 }
 header{
 	background: linear-gradient(45deg, rgb(181, 121, 121), rgb(128, 37, 37));
-	min-height: 80vh;
+	min-height: 100vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -12,25 +12,3 @@ header{
 	font-family: 'Courier New', Courier, monospace;
 	font-size: calc(2vh + 2vw);
 }
-
-main{
-	font-size: calc(2vh + 1vw);
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-main h2{
-	text-align: center;
-}
-.stat {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	margin: auto;
-	width: 90%;
-	text-align: center;
-	border-bottom: 1px solid black;
-}
-.stat_header{
-	font-weight: bold;
-}
-/* .stat__day {} */
-/* .stat__month {} */
-/* .stat__count {} */

@@ -1,5 +1,5 @@
-// main();
 location.href = 'html/closed/closed.html';
+// main();
 
 function main(){
 	const today = new Date();
@@ -132,33 +132,6 @@ function inner_p(text, classes = null) {
 	}
 
 	return p;
-}
-
-function visit_counter(day, month) {
-	++month;
-	let today = `${day}_${month}`;
-
-	let visiting_days = JSON.parse(localStorage.getItem('visiting_days')) ?? [];
-
-	if (!(check_day_in_days(visiting_days, today))) {
-		visiting_days.push(today);
-		localStorage.setItem('visiting_days', JSON.stringify(visiting_days));
-	}
-
-	let visit_count = JSON.parse(localStorage.getItem(`visiting_${today}`));
-	visit_count = visit_count ?? 1;
-
-	localStorage.setItem(`visiting_${day}_${month}`, visit_count + 1);
-}
-
-function check_day_in_days(days, today) {
-	for (let i = 0; i < days.length; ++i) {
-		if (days[i] == today) {
-			return true;
-		}
-	}
-
-	return false;
 }
 
 function test(t1, t2) {

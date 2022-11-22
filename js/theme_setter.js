@@ -1,8 +1,8 @@
-(() => {
-	const link = document.createElement('link');
-	link.rel = "stylesheet";
-	link.href = "css/themes.css";
-	document.head.appendChild(link);
+{
+theme_setter();
+
+function theme_setter(){
+	document.head.appendChild(create_link());
 	
 	const header = document.createElement('header');
 	header.classList.add('center');
@@ -25,4 +25,13 @@
 
 	header.appendChild(div);
 	document.body.appendChild(header);
-})();
+};
+
+function create_link() {
+	const link = document.createElement('link');
+	link.rel = "stylesheet";
+	link.href = "css/themes.css";
+
+	return link;
+}
+}
