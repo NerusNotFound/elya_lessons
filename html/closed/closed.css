@@ -1,6 +1,7 @@
-body{
+*{
 	padding: 0;
 	margin: 0;
+	box-sizing: border-box;
 }
 header{
 	background: linear-gradient(45deg, rgb(181, 121, 121), rgb(128, 37, 37));
@@ -11,4 +12,29 @@ header{
 	color: white;
 	font-family: 'Courier New', Courier, monospace;
 	font-size: calc(2vh + 2vw);
+}
+
+.box {
+	border: 1px solid white;
+	padding: 10px;
+	border-radius: 7px;
+	position: relative;
+}
+.deadline {
+	position: absolute;
+	font-size: 1rem;
+	top: -1.1rem;
+	opacity: .3;
+	right: .1rem;
+}
+.box__header-text {
+	border-bottom: 1px dashed white;
+}
+.box__time {
+	padding-top: 7px;
+	margin-top: 10px;
+}
+.box__time_time {
+	font-weight: bold;
+	opacity: .7;
 }
